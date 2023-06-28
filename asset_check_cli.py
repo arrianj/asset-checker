@@ -1,5 +1,6 @@
 import os
 
+
 # Function to check if a file with the given name exists in a directory
 def check_file_exists(directory, filename):
     for file in os.listdir(directory):
@@ -8,23 +9,24 @@ def check_file_exists(directory, filename):
             return True
     return False
 
-def compare_directories(movie_dir, assets_dir):
+
+def compare_directories(media_dir, assets_dir):
     missing_directories = []
     missing_posters = []
     missing_backgrounds = []
 
-    # Get a list of movie directories
-    movie_directories = os.listdir(movie_dir)
+    # Get a list of media directories
+    media_directories = os.listdir(media_dir)
 
-    for movie_directory in movie_directories:
-        movie_assets_dir = os.path.join(assets_dir, movie_directory)
-        if not os.path.exists(movie_assets_dir):
-            missing_directories.append(movie_directory)
+    for media_directory in media_directories:
+        media_assets_dir = os.path.join(assets_dir, media_directory)
+        if not os.path.exists(media_assets_dir):
+            missing_directories.append(media_directory)
         else:
-            if not check_file_exists(movie_assets_dir, "poster"):
-                missing_posters.append(movie_directory)
-            if not check_file_exists(movie_assets_dir, "background"):
-                missing_backgrounds.append(movie_directory)
+            if not check_file_exists(media_assets_dir, "poster"):
+                missing_posters.append(media_directory)
+            if not check_file_exists(media_assets_dir, "background"):
+                missing_backgrounds.append(media_directory)
 
     # Save the results to a text file
     with open("comparison_results.txt", "w") as file:
@@ -37,8 +39,6 @@ def compare_directories(movie_dir, assets_dir):
 
     print("Comparison results saved to comparison_results.txt")
 
-
-# Example usage
 media_directory = "D:/movies"
 assets_directory = "D:/Plex-Meta-Manager/assets"
 
