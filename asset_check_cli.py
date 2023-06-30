@@ -28,8 +28,11 @@ def compare_directories(media_dir, assets_dir):
             if not check_file_exists(media_assets_dir, "background"):
                 missing_backgrounds.append(media_directory)
 
+    result_file = f"missing_assets_{media_assets_dir}.txt"
+
+
     # Save the results to a text file
-    with open("comparison_results.txt", "w") as file:
+    with open("result_file.txt", "w") as file:
         file.write("Missing directories:\n")
         file.write("\n".join(missing_directories))
         file.write("\n\nMissing posters:\n")
@@ -37,7 +40,7 @@ def compare_directories(media_dir, assets_dir):
         file.write("\n\nMissing backgrounds:\n")
         file.write("\n".join(missing_backgrounds))
 
-    print("Comparison results saved to comparison_results.txt")
+    print(f"Comparison results saved to {result_file}")
 
 media_directory = "D:/movies"
 assets_directory = "D:/Plex-Meta-Manager/assets"
