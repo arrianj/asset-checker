@@ -91,7 +91,5 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgements
 
-- The CLI version of the script is based on the
-
- work of the original author.
+- The CLI version of the script is based on the work of the original author.
 - The GUI version of the script utilizes the `tkinter` library for creating the graphical interface.
