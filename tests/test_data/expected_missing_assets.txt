@@ -1,0 +1,9 @@
+Missing directories:
+movie1
+movie2
+movie3
+
+Missing posters:
+
+
+Missing backgrounds:
