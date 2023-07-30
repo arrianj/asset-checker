@@ -39,5 +39,3 @@ def compare_directories(media_dir, assets_dir):
         file.write("\n".join(missing_posters))
         file.write("\n\nMissing backgrounds:\n")
         file.write("\n".join(missing_backgrounds))
-
-    print(f"Comparison results saved to {result_file}")
