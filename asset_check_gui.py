@@ -1,46 +1,7 @@
 import os
 import tkinter as tk
+from asset_logic import compare_directories
 from tkinter import filedialog
-
-
-def check_file_exists(directory, filename):
-    for file in os.listdir(directory):
-        file_path = os.path.join(directory, file)
-        if os.path.isfile(file_path) and file.lower().startswith(filename.lower()):
-            return True
-    return False
-
-
-def compare_directories(media_dir, assets_dir):
-    media_dir_name = os.path.basename(media_dir)
-    missing_directories = []
-    missing_posters = []
-    missing_backgrounds = []
-
-    media_directories = os.listdir(media_dir)
-
-    for media_dir in media_directories:
-        media_assets_dir = os.path.join(assets_dir, media_dir)
-        if not os.path.exists(media_assets_dir):
-            missing_directories.append(media_dir)
-        else:
-            if not check_file_exists(media_assets_dir, "poster"):
-                missing_posters.append(media_dir)
-            if not check_file_exists(media_assets_dir, "background"):
-                missing_backgrounds.append(media_dir)
-
-    result_file = f"missing_assets_{media_dir_name}.txt"
-
-    with open(result_file, "w") as file:
-        file.write(f"Missing Assets:\n\n")
-        file.write("Missing directories:\n")
-        file.write("\n".join(missing_directories))
-        file.write("\n\nMissing posters:\n")
-        file.write("\n".join(missing_posters))
-        file.write("\n\nMissing backgrounds:\n")
-        file.write("\n".join(missing_backgrounds))
-
-    print(f"Comparison results saved to {result_file}")
 
 
 def select_media_directory():
@@ -94,4 +55,5 @@ start_button = tk.Button(window, text="Check For Assets", command=start_comparis
 start_button.grid(row=2, column=1, padx=5, pady=10)
 
 # Run the GUI event loop
-window.mainloop()
+if __name__ == "__main__":
+    window.mainloop()
