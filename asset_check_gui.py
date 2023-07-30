@@ -17,22 +17,22 @@ def compare_directories(media_dir, assets_dir):
     missing_posters = []
     missing_backgrounds = []
 
-    movie_directories = os.listdir(media_dir)
+    media_directories = os.listdir(media_dir)
 
-    for movie_directory in movie_directories:
-        movie_assets_dir = os.path.join(assets_dir, movie_directory)
-        if not os.path.exists(movie_assets_dir):
-            missing_directories.append(movie_directory)
+    for media_dir in media_directories:
+        media_assets_dir = os.path.join(assets_dir, media_dir)
+        if not os.path.exists(media_assets_dir):
+            missing_directories.append(media_dir)
         else:
-            if not check_file_exists(movie_assets_dir, "poster"):
-                missing_posters.append(movie_directory)
-            if not check_file_exists(movie_assets_dir, "background"):
-                missing_backgrounds.append(movie_directory)
+            if not check_file_exists(media_assets_dir, "poster"):
+                missing_posters.append(media_dir)
+            if not check_file_exists(media_assets_dir, "background"):
+                missing_backgrounds.append(media_dir)
 
     result_file = f"missing_assets_{media_dir_name}.txt"
 
     with open(result_file, "w") as file:
-        file.write(f"Media Directory: {media_dir}\n\n")
+        file.write(f"Missing Assets:\n\n")
         file.write("Missing directories:\n")
         file.write("\n".join(missing_directories))
         file.write("\n\nMissing posters:\n")
