@@ -11,6 +11,7 @@ def check_file_exists(directory, filename):
 
 
 def compare_directories(media_dir, assets_dir):
+    media_dir_name = os.path.basename(media_dir)
     missing_directories = []
     missing_posters = []
     missing_backgrounds = []
@@ -28,11 +29,10 @@ def compare_directories(media_dir, assets_dir):
             if not check_file_exists(media_assets_dir, "background"):
                 missing_backgrounds.append(media_directory)
 
-    result_file = f"missing_assets_{media_assets_dir}.txt"
-
+    result_file = f"missing_assets_{media_dir_name}.txt"
 
     # Save the results to a text file
-    with open("result_file.txt", "w") as file:
+    with open(result_file, "w") as file:
         file.write("Missing directories:\n")
         file.write("\n".join(missing_directories))
         file.write("\n\nMissing posters:\n")
