@@ -1,13 +1,39 @@
 # Asset Checker
 
-This repository contains two scripts: `asset_check_cli.py` and `asset_check_gui.py`. These scripts allow you to compare directories and check for missing assets for Plex Meta Manager or other tools, looking for posters and backgrounds.
+![Python version](https://img.shields.io/badge/python-3.6%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+The Asset Checker is a utility tool designed to compare directories and check for missing assets, such as posters and backgrounds, for media directories used in Plex Meta Manager or similar applications.
+
+## Table of Contents
+
+- [Asset Checker](#asset-checker)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Prerequisites](#prerequisites)
+  - [Usage](#usage)
+    - [CLI Version](#cli-version)
+    - [GUI Version](#gui-version)
+    - [Creating Executables](#creating-executables)
+      - [CLI Version Executable](#cli-version-executable)
+      - [GUI Version Executable](#gui-version-executable)
+  - [License](#license)
+  - [Acknowledgements](#acknowledgements)
+
+## Introduction
+
+The repository contains two versions of the Asset Checker tool:
+
+1. **CLI Version**: `asset_check_cli.py` provides a command-line interface for comparing media and assets directories. Users can specify directories and perform the comparison, generating a `comparison_results.txt` file with the missing directories, posters, and backgrounds.
+
+2. **GUI Version**: `asset_check_gui.py` presents a graphical user interface using `tkinter`, allowing users to select directories via buttons. The GUI version outputs results to `missing_assets_<media_directory>.txt`, containing the missing directories, posters, and backgrounds.
 
 ## Prerequisites
 
-Before running the scripts, ensure that you have the following:
+To use the Asset Checker tool, ensure the following prerequisites are met:
 
-- Python 3 installed on your system.
-- Required dependencies installed. You can install them by running the following command:
+- Python 3.6 or higher is installed on your system.
+- Install the required dependencies by running:
 
   ```
   pip install -r requirements.txt
@@ -17,31 +43,26 @@ Before running the scripts, ensure that you have the following:
 
 ### CLI Version
 
-The CLI version of the tool is implemented in `asset_check_cli.py`. To use it, follow these steps:
-
-1. Open the script file `asset_check_cli.py` in a text editor or IDE.
-2. Modify the `media_directory` and `assets_directory` variables at the beginning of the script to specify the directories you want to compare.
+1. Open `asset_check_cli.py` in a text editor or IDE.
+2. Modify `media_directory` and `assets_directory` variables at the beginning of the script to specify directories.
 3. Save the changes.
 4. Open a command-line interface.
-5. Navigate to the directory where the script is saved.
+5. Navigate to the script's directory.
 6. Run the following command to execute the script:
 
    ```
    python asset_check_cli.py
    ```
 
-7. The script will compare the specified directories and generate a `comparison_results.txt` file, which will contain the missing directories, missing posters, and missing backgrounds.
-8. The comparison results will also be printed in the console.
+7. The script compares directories and generates `comparison_results.txt`.
 
 ### GUI Version
 
-The GUI version of the tool is implemented in `asset_check_gui.py`. To use it, follow these steps:
-
-1. Open the script file `asset_check_gui.py` in a text editor or IDE.
-2. Modify the code if needed, such as setting default directories or customizing the GUI elements.
+1. Open `asset_check_gui.py` in a text editor or IDE.
+2. Modify the code if needed, such as setting default directories or customizing GUI elements.
 3. Save the changes.
 4. Open a command-line interface.
-5. Navigate to the directory where the script is saved.
+5. Navigate to the script's directory.
 6. Run the following command to execute the script:
 
    ```
@@ -49,47 +70,45 @@ The GUI version of the tool is implemented in `asset_check_gui.py`. To use it, f
    ```
 
 7. The GUI window will appear.
-8. Click the "Select" buttons next to the "Media Directory" and "Assets Directory" fields to choose the directories you want to compare.
-9. Click the "Check For Assets" button to start the comparison.
-10. The script will compare the selected directories and generate a `missing_assets_<media_directory>.txt` file, which will contain the missing directories, missing posters, and missing backgrounds.
-11. The comparison results will also be printed in the console.
+8. Click the "Select" buttons next to "Media Directory" and "Assets Directory" fields to choose directories.
+9. Click "Check For Assets" to start the comparison.
+10. The script compares the selected directories and generates `missing_assets_<media_directory>.txt`.
 
 ### Creating Executables
 
-You can use `PyInstaller` to create standalone executables for the CLI and GUI versions of the tool. Follow these steps to create the executables:
+You can use `PyInstaller` to create standalone executables for both versions:
 
 #### CLI Version Executable
 
 1. Open a command-line interface.
-2. Navigate to the directory where the `asset_check_cli.py` script is saved.
+2. Navigate to the script's directory.
 3. Run the following command to create the executable:
 
    ```
    pyinstaller asset_check_cli.py --onefile
    ```
 
-4. Once the process completes, the executable file will be created in the `dist` directory.
+4. The executable will be in the `dist` directory.
 
 #### GUI Version Executable
 
 1. Open a command-line interface.
-2. Navigate to the directory where the `asset_check_gui.py` script is saved.
+2. Navigate to the script's directory.
 3. Run the following command to create the executable:
 
    ```
    pyinstaller asset_check_gui.py --onefile --noconsole
    ```
 
-4. Once the process completes, the executable file will be created in the `dist` directory.
-5. The `--noconsole` option is used to hide the console window for the GUI application.
-
-**Note:** The `--onefile` option creates a single executable file. If you prefer a directory with multiple files, you can omit this option.
+4. The executable will be in the `dist` directory.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
 
 - The CLI version of the script is based on the work of the original author.
 - The GUI version of the script utilizes the `tkinter` library for creating the graphical interface.
+
+For any questions or issues, feel free to open an issue or contribute to the project!
