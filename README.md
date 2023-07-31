@@ -110,5 +110,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - The CLI version of the script is based on the work of the original author.
 - The GUI version of the script utilizes the `tkinter` library for creating the graphical interface.
-
-For any questions or issues, feel free to open an issue or contribute to the project!
