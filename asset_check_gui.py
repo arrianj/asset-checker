@@ -5,23 +5,23 @@ from tkinter import filedialog
 
 
 def select_media_directory():
-    media_dir = filedialog.askdirectory(title="Select Media Directory")
-    media_dir_entry.delete(0, tk.END)
-    media_dir_entry.insert(tk.END, media_dir)
+    media_directory = filedialog.askdirectory(title="Select Media Directory")
+    media_directory_entry.delete(0, tk.END)
+    media_directory_entry.insert(tk.END, media_directory)
 
 
 def select_assets_directory():
-    assets_dir = filedialog.askdirectory(title="Select Assets Directory")
-    assets_dir_entry.delete(0, tk.END)
-    assets_dir_entry.insert(tk.END, assets_dir)
+    assets_directory = filedialog.askdirectory(title="Select Assets Directory")
+    assets_directory_entry.delete(0, tk.END)
+    assets_directory_entry.insert(tk.END, assets_directory)
 
 
 def start_comparison():
-    media_dir = media_dir_entry.get()
-    assets_dir = assets_dir_entry.get()
+    media_directory = media_directory_entry.get()
+    assets_directory = assets_directory_entry.get()
 
-    if media_dir and assets_dir:
-        compare_directories(media_dir, assets_dir)
+    if media_directory and assets_directory:
+        compare_directories(media_directory, assets_directory)
 
 
 # Create the main window
@@ -31,24 +31,28 @@ window.geometry("290x115")
 window.title("Directory Comparison")
 
 # Create and place the media directory widgets
-media_dir_label = tk.Label(window, text="Media Directory:")
-media_dir_label.grid(row=0, column=0, sticky="E")
+media_directory_label = tk.Label(window, text="Media Directory:")
+media_directory_label.grid(row=0, column=0, sticky="E")
 
-media_dir_entry = tk.Entry(window)
-media_dir_entry.grid(row=0, column=1, padx=5, pady=5)
+media_directory_entry = tk.Entry(window)
+media_directory_entry.grid(row=0, column=1, padx=5, pady=5)
 
-media_dir_button = tk.Button(window, text="Select", command=select_media_directory)
-media_dir_button.grid(row=0, column=2, padx=5, pady=5)
+media_directory_button = tk.Button(
+    window, text="Select", command=select_media_directory
+)
+media_directory_button.grid(row=0, column=2, padx=5, pady=5)
 
 # Create and place the assets directory widgets
-assets_dir_label = tk.Label(window, text="Assets Directory:")
-assets_dir_label.grid(row=1, column=0, sticky="E")
+assets_directory_label = tk.Label(window, text="Assets Directory:")
+assets_directory_label.grid(row=1, column=0, sticky="E")
 
-assets_dir_entry = tk.Entry(window)
-assets_dir_entry.grid(row=1, column=1, padx=5, pady=5)
+assets_directory_entry = tk.Entry(window)
+assets_directory_entry.grid(row=1, column=1, padx=5, pady=5)
 
-assets_dir_button = tk.Button(window, text="Select", command=select_assets_directory)
-assets_dir_button.grid(row=1, column=2, padx=5, pady=5)
+assets_directory_button = tk.Button(
+    window, text="Select", command=select_assets_directory
+)
+assets_directory_button.grid(row=1, column=2, padx=5, pady=5)
 
 # Create and place the start button
 start_button = tk.Button(window, text="Check For Assets", command=start_comparison)
