@@ -31,7 +31,9 @@ if __name__ == "__main__":
                     media_directory = "D:/movies"
                     break
                 else:
-                    print("Invalid choice. Please try again.")
+                    print(
+                        "Invalid choice. Please try again. Do you want to check for movies or tv? (m/t)"
+                    )
 
             break
 
