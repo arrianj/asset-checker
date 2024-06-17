@@ -24,10 +24,10 @@ if __name__ == "__main__":
                 choose_directory = input(
                     "Do you want to check for movies or tv? (m/t): "
                 ).lower()
-                if choose_directory == "m":
+                if choose_directory == "t":
                     media_directory = "D:/tv"
                     break
-                elif choose_directory == "t":
+                elif choose_directory == "m":
                     media_directory = "D:/movies"
                     break
                 else:
