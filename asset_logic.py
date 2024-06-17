@@ -22,22 +22,25 @@ def compare_directories(base_media_directory, assets_directory):
 
     for media_directory in media_directories:
         media_assets_directory = os.path.join(assets_directory, media_directory)
-        # Check for asset directories that need to be created
+
+        # Check if the assets directory exists
         if not os.path.exists(media_assets_directory):
+            # If not, add to the list of missing directories
             missing_directories.append(media_directory)
         else:
-            # Check for directories without either a poster or background
+            # Check if poster and background files exist
             poster_exists = check_file_exists(media_assets_directory, "poster")
             background_exists = check_file_exists(media_assets_directory, "background")
 
+            # Track directories missing both posters and backgrounds
             if not poster_exists and not background_exists:
                 missing_both.append(media_directory)
-            else:
-                # Check for directories with either a poster or background
-                if not poster_exists:
-                    missing_posters.append(media_directory)
-                if not background_exists:
-                    missing_backgrounds.append(media_directory)
+            # Track directories missing only posters
+            if not poster_exists:
+                missing_posters.append(media_directory)
+            # Track directories missing only backgrounds
+            if not background_exists:
+                missing_backgrounds.append(media_directory)
 
     result_file = f"missing_assets_{media_directory_name}.txt"
 
