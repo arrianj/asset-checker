@@ -50,7 +50,7 @@ def compare_directories(base_media_directory, assets_directory):
             file.write("Missing directories:\n")
             file.write("\n".join(missing_directories))
         if missing_both:
-            file.write("\n\nMissing posters:\n")
+            file.write("\n\nMissing both poster and background:\n")
             file.write("\n".join(missing_both))
         if missing_posters:
             file.write("\n\nMissing posters:\n")
