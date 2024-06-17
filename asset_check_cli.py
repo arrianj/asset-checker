@@ -31,9 +31,7 @@ if __name__ == "__main__":
                     media_directory = "D:/movies"
                     break
                 else:
-                    print(
-                        "Invalid choice. Please try again. Do you want to check for movies or tv? (m/t)"
-                    )
+                    print("Invalid choice. Please try again.")
 
             break
 
@@ -47,3 +45,4 @@ if __name__ == "__main__":
             print("Invalid input. Please enter 'y' or 'n'.")
 
     compare_directories(media_directory, assets_directory)
+    print("Report generated")

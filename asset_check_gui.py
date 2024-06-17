@@ -1,7 +1,7 @@
 import os
 import tkinter as tk
 from asset_logic import compare_directories
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
 
 
 def select_media_directory():
@@ -22,12 +22,12 @@ def start_comparison():
 
     if media_directory and assets_directory:
         compare_directories(media_directory, assets_directory)
+        messagebox.showinfo("Report", "Report generated")
 
 
 # Create the main window
 window = tk.Tk()
 window.geometry("290x115")
-
 window.title("Directory Comparison")
 
 # Create and place the media directory widgets
