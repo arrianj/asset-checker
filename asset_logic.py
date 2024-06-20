@@ -35,12 +35,13 @@ def compare_directories(base_media_directory, assets_directory):
             # Track directories missing both posters and backgrounds
             if not poster_exists and not background_exists:
                 missing_both.append(media_directory)
-            # Track directories missing only posters
-            if not poster_exists:
-                missing_posters.append(media_directory)
-            # Track directories missing only backgrounds
-            if not background_exists:
-                missing_backgrounds.append(media_directory)
+            else:
+                # Track directories missing only posters
+                if not poster_exists:
+                    missing_posters.append(media_directory)
+                # Track directories missing only backgrounds
+                if not background_exists:
+                    missing_backgrounds.append(media_directory)
 
     result_file = f"missing_assets_{media_directory_name}.txt"
 
