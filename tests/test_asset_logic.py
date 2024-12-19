@@ -56,9 +56,6 @@ class TestFileExistenceFunctions(unittest.TestCase):
         # Check contents written to the file
         handle = mock_open()
 
-        # Print actual calls for debugging
-        print("Actual write calls:", handle.write.mock_calls)
-
         expected_calls = [
             call.write("\n\nMissing posters:\n"),
             call.write("media2"),
